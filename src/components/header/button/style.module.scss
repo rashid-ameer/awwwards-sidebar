@@ -1,0 +1,76 @@
+.button {
+  --color: #c1fb75;
+  --color-invert: #000;
+  --rounded-full: 9999px;
+
+  width: 100px;
+  height: 40px;
+  border-radius: var(--rounded-full);
+  cursor: pointer;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &.transform {
+    .wrapper {
+      transform: translateY(-100%);
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+
+    &:nth-child(1) {
+      background-color: var(--color);
+      color: var(--color-invert);
+    }
+
+    &:nth-child(2) {
+      background-color: var(--color-invert);
+      color: var(--color);
+    }
+
+    .perspectiveText {
+      text-transform: uppercase;
+      font-weight: 500;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+
+      p {
+        pointer-events: none;
+        transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+      }
+
+      p:nth-child(2) {
+        opacity: 0;
+        position: absolute;
+        transform-origin: bottom;
+        transform: rotateX(-90deg) translateY(9px);
+      }
+    }
+
+    &:hover {
+      .perspectiveText {
+        transform: rotateX(90deg);
+
+        p:nth-child(1) {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+
+        p:nth-child(2) {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

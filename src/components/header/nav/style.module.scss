@@ -1,0 +1,31 @@
+.nav {
+  height: 100%;
+  padding: min(15vh, 100px) clamp(40px, 4vw, 80px) min(10vh, 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 450px;
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    .link {
+      font-size: 3rem;
+      line-height: 66px;
+      perspective-origin: bottom;
+      perspective: 120;
+    }
+  }
+  .footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+
+    a {
+      display: block;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
